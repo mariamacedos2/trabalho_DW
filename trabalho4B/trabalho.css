@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #ffffff;
-    color: #000000;
+    color: hsl(317, 80%, 73%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +16,7 @@ body {
     height: 90vh;
     background: #ffffff;
     padding: 1rem;
-    border: 5px solid black;
+    border: 5px solid hsl(317, 80%, 73%);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -57,7 +57,7 @@ button {
 }  
 #adicionar_tar {
     padding: 0.5rem;
-    background-color: #000000;
+    background-color: hsl(317, 80%, 73%);
     color: #fff;
     border-radius: 4px;
 }  
@@ -76,3 +76,42 @@ button {
     border-radius: 4px;
     width: 40vw;
 }
+
+#heart-decoration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Evita interação com os corações */
+    z-index: -1; /* Mantém os corações atrás do conteúdo */
+  }
+  
+  .heart {
+    position: absolute;
+    font-size: 30px;
+    opacity: 0.7;
+  }
+  
+  /* Posição dos corações */
+  .heart:nth-child(1) {
+    top: 10px;
+    left: 20px;
+  }
+  
+  .heart:nth-child(2) {
+    top: 50px;
+    right: 40px;
+  }
+  
+  .heart:nth-child(3) {
+    bottom: 20px;
+    left: 30px;
+  }
+  
+  .heart:nth-child(4) {
+    bottom: 50px;
+    right: 20px;
+  }
+  
+  
