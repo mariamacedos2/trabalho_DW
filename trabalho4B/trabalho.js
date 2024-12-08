@@ -1,45 +1,67 @@
+let contador = 0
+let input = document.getElementById('caixa_tarefa');
+let adicionar_tar = document.getElementById('adicionar_tar');
+let main = document.getElementById('lista_tar');
 
-const caixatarefa = document.getElementById("caixa_tarefa");
-const addtarefa  = document.getElementById("adicionar_tar");
-const listatarefa = document.getElementById("lista_tar");
-const contartar = document.getElementById("tar_concluida");
+function addTarefa() {
+  //Pegar o valor digitado no input
+  let valorInput = input.value;
 
-let tarcompleta = 0; // Contador de tarefas concluídas
+  if((valorInput !== "") && (valorInput !== null) && (valorInput !== undefined)){
+   
+   ++contador;
+   
+    let novoItem = `<div id="${contador}" class="item ">
+          <div onclick="marcarTarefa(${contador})" class="item-icone">
+            <i id = "icone_${contador}" class="fa-regular fa-circle"></i>
+          </div>
+          <div  onclick="marcarTarefa(${contador})" class="item-nome">
+              ${valorInput}
+          </div>
+          <div class="item-botao">
+              <button onclick="deletar(${contador})" class="delete"><i class="fa-solid fa-trash-can"></i></button>
+          </div>
+        </div>`;
 
-function addTask() {
-  const taskText = caixatarefa.value.trim(); // Texto da tarefa
+        main.innerHTML += novoItem;
 
-  if (taskText) {
-    // Criando o item da lista (li)
-    const li = document.createElement("li");
-
-    // Adicionando o item à lista de tarefas
-    listatarefa.appendChild(li);
-
-    // Limpando o campo de entrada
-    caixatarefa.value = "";
-
-    // Configurando o botão de completar tarefa
-    const completeButton = li.querySelector(".complete-task");
-    completeButton.addEventListener("click", function () {
-      toggleCompleteTask(li);
-    });
-
-
-  // Atualizando o contador de tarefas concluídas
-  contartar.textContent = {${tarcompleta} tarefas concluídas
-}
-
-  // Atualizando o contador de tarefas concluídas
-  contartar.textContent = ${tarcompleta} tarefas concluídas;
-}
-
-// Event listeners
-addtarefa.addEventListener("click", addTask); // Adiciona uma tarefa
-
-
-document.addEventListener("keydown", function (event) {
-  if (event.ctrlKey && event.key === "h") {
-    openModal(); // Abre o modal com Ctrl + H
+        input.value = "";
+        input.focus();
   }
-});
+
+}
+
+function deletar(id){
+  var tarefa = document.getElementById(id);
+  tarefa.remove();
+}
+
+function marcarTarefa(id){
+  var item = document.getElementById(id);
+  var classe = item.getAttribute('class');
+  console.log(classe);
+
+  if(classe == "item"){
+    item.classList.add('clicado');
+
+    var icone = document.getElementById('icone_'+ id);
+    icone.classList.remove('fa-circle');
+    icone.classList.add('fa-circle-check');
+
+    item.parentNode.appendChild(item);
+  }else{
+    item.classList.remove('clicado');
+
+    var icone = document.getElementById('icone_'+ id);
+    icone.classList.remove('fa-circle-check');
+    icone.classList.add('fa-circle');
+
+  }
+}
+
+input.addEventListener("Keyup", function(event){
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    adicionar_tar.click();
+  }
+})
