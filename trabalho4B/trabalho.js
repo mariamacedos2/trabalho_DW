@@ -52,38 +52,37 @@ function deletar(id){
   atualizarContagem();
 }
 
-function marcarTarefa(id){
-  var item = document.getElementById(id);
-  var classe = item.getAttribute('class');
-  console.log(classe);
+function marcarTarefa(id) {
+  var item = document.getElementById(id); 
+  var isConcluido = item.classList.contains('clicado'); 
 
-  if(classe == "item"){
-    item.classList.add('clicado');
-
-    var icone = document.getElementById('icone_'+ id);
+  if (!isConcluido) {
+    item.classList.add('clicado'); 
+    var icone = document.getElementById('icone_' + id);
     icone.classList.remove('fa-circle');
     icone.classList.add('fa-circle-check');
-
     item.parentNode.appendChild(item);
-    concluidas++;
-  }else{
-    item.classList.remove('clicado');
-
-    var icone = document.getElementById('icone_'+ id);
+    concluidas++; 
+  } else {
+    item.classList.remove('clicado'); 
+    var icone = document.getElementById('icone_' + id);
     icone.classList.remove('fa-circle-check');
     icone.classList.add('fa-circle');
-    concluidas--;
+    concluidas--; 
   }
+
+
   atualizarContagem();
 }
+
 
 function ediTarefa(id) {
   const item = document.getElementById(id); // Encontra o elemento da tarefa pelo ID
   const nomeDiv = item.querySelector(".item-nome"); // Seleciona o div que contém o nome da tarefa
-  const novoTexto = prompt("Editar Tarefa:", nomeDiv.textContent); // Exibe o prompt para editar
+  const novoTexto = prompt("Editar Tarefa:", nomeDiv.textContent); 
   
   if (novoTexto !== null && novoTexto.trim() !== "") {
-    nomeDiv.textContent = novoTexto.trim(); // Atualiza o texto da tarefa
+    nomeDiv.textContent = novoTexto.trim(); 
   }
 }
 
