@@ -1,7 +1,14 @@
 let contador = 0
+let concluidas = 0
 let input = document.getElementById('caixa_tarefa');
 let adicionar_tar = document.getElementById('adicionar_tar');
 let main = document.getElementById('lista_tar');
+let tarConcluida = document.getElementById('tar_concluida');
+
+function atualizarContagem() {
+  const totalTarefas = document.querySelectorAll('.item').length; // Total de tarefas
+  tarConcluida.textContent = `${concluidas}/${totalTarefas} tarefas concluídas`;
+}
 
 function addTarefa() {
   //Pegar o valor digitado no input
@@ -30,13 +37,19 @@ function addTarefa() {
 
         input.value = "";
         input.focus();
+        atualizarContagem();
   }
 
 }
 
 function deletar(id){
   var tarefa = document.getElementById(id);
+  if (tarefa.classList.contains('clicado')) {
+    concluidas--;
+  }
+
   tarefa.remove();
+  atualizarContagem();
 }
 
 function marcarTarefa(id){
@@ -52,14 +65,16 @@ function marcarTarefa(id){
     icone.classList.add('fa-circle-check');
 
     item.parentNode.appendChild(item);
+    concluidas++;
   }else{
     item.classList.remove('clicado');
 
     var icone = document.getElementById('icone_'+ id);
     icone.classList.remove('fa-circle-check');
     icone.classList.add('fa-circle');
-
+    concluidas--;
   }
+  atualizarContagem();
 }
 
 function ediTarefa(id) {

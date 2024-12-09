@@ -121,7 +121,6 @@ button {
     width: 45vw;
     height: 90%;
     margin: auto auto;
-    /* border:1px solid blue;*/
     padding-top: 40px;
     
   }
@@ -165,13 +164,6 @@ button {
     width: 100%;
   }
 
-  .ediTarefa{
-    flex: 10%;
-    text-align: center;
-    font-size: 1.3rem;
-    color: hsl(0, 100%, 49%);
-    width: 30%;
-  }
   
   .item.clicado{
     background: #e8fff2;
@@ -181,6 +173,13 @@ button {
     text-decoration: line-through;
     color: rgb(97, 94, 94);
   }
+
+ .fa-pen-to-square{
+  text-align: center;
+  font-size: 1.3rem; 
+  color:  hsl(317, 80%, 73%);
+ }
+ 
   .fa-regular{
     flex: 20%;
     text-align: center;
