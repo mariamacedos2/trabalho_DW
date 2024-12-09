@@ -18,6 +18,9 @@ function addTarefa() {
           <div  onclick="marcarTarefa(${contador})" class="item-nome">
               ${valorInput}
           </div>
+           <div class="ediTarefa">
+              <button class="editBotao" onclick = "ediTarefa(${contador})"><i class="fa-solid fa-pen-to-square"></i></button>
+          </div>
           <div class="item-botao">
               <button onclick="deletar(${contador})" class="delete"><i class="fa-solid fa-trash-can"></i></button>
           </div>
@@ -56,6 +59,16 @@ function marcarTarefa(id){
     icone.classList.remove('fa-circle-check');
     icone.classList.add('fa-circle');
 
+  }
+}
+
+function ediTarefa(id) {
+  const item = document.getElementById(id); // Encontra o elemento da tarefa pelo ID
+  const nomeDiv = item.querySelector(".item-nome"); // Seleciona o div que contém o nome da tarefa
+  const novoTexto = prompt("Editar Tarefa:", nomeDiv.textContent); // Exibe o prompt para editar
+  
+  if (novoTexto !== null && novoTexto.trim() !== "") {
+    nomeDiv.textContent = novoTexto.trim(); // Atualiza o texto da tarefa
   }
 }
 

@@ -164,14 +164,22 @@ button {
     color: hsl(317, 80%, 73%);
     width: 100%;
   }
+
+  .ediTarefa{
+    flex: 10%;
+    text-align: center;
+    font-size: 1.3rem;
+    color: hsl(0, 100%, 49%);
+    width: 30%;
+  }
   
   .item.clicado{
-    background: #c9fae0;
+    background: #e8fff2;
   }
   
   .item.clicado .item-nome{
     text-decoration: line-through;
-    color: gray;
+    color: rgb(97, 94, 94);
   }
   .fa-regular{
     flex: 20%;
