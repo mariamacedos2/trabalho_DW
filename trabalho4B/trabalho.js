@@ -86,7 +86,7 @@ function ediTarefa(id) {
   }
 }
 
-input.addEventListener("Keyup", function(event){
+input.addEventListener("keyup", function(event){
   if (event.keyCode === 13) {
     event.preventDefault();
     adicionar_tar.click();
