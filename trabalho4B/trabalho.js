@@ -92,3 +92,16 @@ input.addEventListener("keyup", function(event){
     adicionar_tar.click();
   }
 })
+
+function dianoite() {
+  const body = document.body;
+
+  if (body.classList.contains('dark-mode')) {
+    body.classList.remove('dark-mode');
+    document.getElementById('tema').textContent = '🌙';
+  } else {
+    body.classList.add('dark-mode');
+    document.getElementById('tema').textContent = '🌞'; 
+  }
+}
+

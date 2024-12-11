@@ -10,6 +10,11 @@ body {
     height: 100vh;
     width: 100vw;
 }
+
+body.dark-mode {
+  background-color: #510944;
+  color: #5e0303;
+}
   
 .container {
     width: 95vw;
@@ -22,6 +27,11 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+}
+
+body.dark-mode .container {
+  background-color: #fe7ccc;
+  border-color: #000000;
 }
   
 .top-bar {
@@ -40,6 +50,17 @@ button {
     background-color: transparent;
     font-size: 1.2rem;
     font-family: "Sour Gummy", sans-serif;
+    color: inherit;
+}
+
+body.dark-mode button {
+  color: #890000f8;
+}
+
+#tema {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  cursor: pointer;
 }
 
 .caixa_tarefa {
