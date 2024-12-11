@@ -4,6 +4,13 @@ let input = document.getElementById('caixa_tarefa');
 let adicionar_tar = document.getElementById('adicionar_tar');
 let main = document.getElementById('lista_tar');
 let tarConcluida = document.getElementById('tar_concluida');
+const openModalButton = document.querySelector("#openmodal");
+const closeModalButton = document.querySelector("#close-modal");
+const modal = document.querySelector("#modal");
+const fade = document.querySelector("#fade");
+const toggleModal =() => {
+    [modal, fade].forEach((el) => el.classList.toggle("hide"));
+}
 
 function atualizarContagem() {
   const totalTarefas = document.querySelectorAll('.item').length; // Total de tarefas
@@ -105,3 +112,15 @@ function dianoite() {
   }
 }
 
+[openModalButton, closeModalButton, fade].forEach((el) => {
+    el.addEventListener("click", () => toggleModal())
+});
+
+document.addEventListener("keydown", function(event) {
+    if (event.ctrlKey && event.key === "h") {
+      event.preventDefault();
+      toggleModal();
+    }
+  });
+  
+  

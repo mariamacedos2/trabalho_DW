@@ -15,18 +15,34 @@
     <div class="container">
         <div class="top-bar">
           <h1>Lista de Tarefas</h1>
+          <button id="openmodal"></button>
+          <div id="fade" class="hide"></div>
+          <div id="modal" class="hide">
+            <div class="header-modal">
+              <h2>Desenvolvimento Web 2</h2>
+              <button id="close-modal"><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#FFFFFF"><path d="m291-240-51-51 189-189-189-189 51-51 189 189 189-189 51 51-189 189 189 189-51 51-189-189-189 189Z"/></svg></button>
+            </div>
+            <div class="modal-body">
+              <h2>Alunos:</h2>
+              <div class="aluno">Emanuelle de Brito Moura Santos  -  (44) 99804-3457💬📱
+              </div>
+              <div class="aluno">Maria Eduarda Macedo de Souza  -  (44) 99813-4721💬📱</div>
+            </div>
+            <div class="aluno">Ralielly da Silva  -  (44) 99709-6219💬📱</div>
+          </div>
         </div>
 
         <header>
           <button id="tema" onclick="dianoite()">🌙</button>
-          <input id="caixa_tarefa" type="text" placeholder="Digite para adicionar uma nova tarefa...">
+          <input id="caixa_tarefa" type="text" placeholder="Digite uma nova tarefa...">
           <button onclick="addTarefa()" id="adicionar_tar">Adicionar</button>
         </header>
 
         
         <main id="lista_tar"></main>
-        
-        <div id="tar_concluida">0 tarefas concluídas</div>
+        <div class="barra">
+          <div id="tar_concluida">0 tarefas concluídas</div>
+        </div>
 
         <div id="heart-decoration">
           <span class="heart">💗</span>

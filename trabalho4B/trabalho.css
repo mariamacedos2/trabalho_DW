@@ -12,8 +12,8 @@ body {
 }
 
 body.dark-mode {
-  background-color: #510944;
-  color: #5e0303;
+  background-color: #e75dce;
+  color: #e75dce;
 }
   
 .container {
@@ -21,16 +21,84 @@ body.dark-mode {
     height: 90vh;
     background: #fdf5f5;
     padding: 1rem;
-    border: 5px solid hsl(317, 80%, 73%);
+    border: 5px solid hsl(0, 0%, 0%);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
 }
+#fade, #modal{
+    transition: 0.5s;
+    opacity: 1;
+    pointer-events: all;
+}
+#openmodal{
+    padding: .6rem 1.2rem;
+    background-color: #ff00aa;
+    color: white;
+    border: none;
+    border-radius: .25rem;
+    cursor: pointer;
+    opacity: 0.9;
+    font-size: 1rem;
+}
+#close-modal{
+    padding: .4rem 1rem;
+    background-color: #ff00bf;
+    color: white;
+    border: none;
+    border-radius: .25rem;
+    cursor: pointer;
+    opacity: 0.9;
+    font-size: 1rem;
+}
+#fade{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.6);
+    z-index: 5;
+}
+#modal{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 10;
+    background-color: #fcc6e1;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    max-width: 90%;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+}
+.header-modal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f387d3;
+}
 
+#modal.hide,
+#fade.hide{
+    opacity: 0;
+    pointer-events: none;
+}
+p{
+    color: #ff00aa;
+}
+h2{
+    color: #ff00aa;
+}
+.aluno{
+    display: flex;
+    justify-content: right;
+    color: #ff00bf;
+}
 body.dark-mode .container {
-  background-color: #fe7ccc;
+  background-color: #000000;
   border-color: #000000;
 }
   
@@ -54,7 +122,7 @@ button {
 }
 
 body.dark-mode button {
-  color: #890000f8;
+  color: rgb(224, 3, 177);
 }
 
 #tema {
@@ -79,8 +147,9 @@ body.dark-mode button {
 #adicionar_tar {
     padding: 0.5rem;
     background-color: hsl(317, 80%, 73%);
-    color: #fff;
+    color: #ffffff;
     border-radius: 4px;
+    border: 2px solid black;
 }  
 #lista_tar {
     padding: 0;
@@ -98,7 +167,6 @@ body.dark-mode button {
     border-radius: 4px;
     width: 40vw;
 }
-
 .container#heart-decoration {
     position: fixed;
     top: 0;
@@ -152,9 +220,9 @@ body.dark-mode button {
     justify-content: center;
     align-items: center;
     background: white;
-    height: 5vh;
+    height: 7vh;
     width: 100%;
-    box-shadow: 0 0 20px #ccc;
+    box-shadow: 0 0 20px #f8dded;
     margin-bottom: 2%;
     cursor: pointer;
     border: 2px solid #000000;
@@ -187,7 +255,7 @@ body.dark-mode button {
 
   
   .item.clicado{
-    background: #e8fff2;
+    background: #ffe8fe;
   }
   
   .item.clicado .item-nome{
@@ -205,7 +273,7 @@ body.dark-mode button {
     flex: 20%;
     text-align: center;
     font-size: 1.8rem;
-    color: green;
+    color: rgb(224, 3, 177);
     width: 100%;
   }
   
