@@ -35,7 +35,6 @@ function atualizarContagem() {
 
 
 
-
 function addTarefa() {
   //Pegar o valor digitado no input
   let valorInput = input.value;
@@ -88,7 +87,9 @@ function marcarTarefa(id) {
     var icone = document.getElementById('icone_' + id);
     icone.classList.remove('fa-circle');
     icone.classList.add('fa-circle-check');
+    console.log(item.parentNode)
     item.parentNode.appendChild(item);
+   
     concluidas++; 
   } else {
     item.classList.remove('clicado'); 
@@ -111,7 +112,7 @@ function ediTarefa(id) {
 }
 
 input.addEventListener("keyup", function(event){
-  if (event.keyCode === 13) {
+  if (event.key === "Enter") {
     event.preventDefault();
     adicionar_tar.click();
   }
