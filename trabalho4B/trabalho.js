@@ -4,7 +4,6 @@ let input = document.getElementById('caixa_tarefa');
 let adicionar_tar = document.getElementById('adicionar_tar');
 let main = document.getElementById('lista_tar');
 let tarConcluida = document.getElementById('tar_concluida');
-const openModalButton = document.querySelector("#openmodal");
 const closeModalButton = document.querySelector("#close-modal");
 const modal = document.querySelector("#modal");
 const fade = document.querySelector("#fade");
@@ -14,9 +13,28 @@ const toggleModal =() => {
 }
 
 function atualizarContagem() {
-  const totalTarefas = document.querySelectorAll('.item').length; // Total de tarefas
+  const totalTarefas = document.querySelectorAll('.item').length;
+  const progresso = document.getElementById('progresso');
+
   tarConcluida.textContent = `${concluidas}/${totalTarefas} tarefas concluídas`;
+
+
+  const percentual = totalTarefas > 0 ? (concluidas / totalTarefas) * 100 : 0;
+
+
+  progresso.style.width = `${percentual}%`;
+
+  if (percentual < 50) {
+    progresso.style.backgroundColor = '#f44336';
+  } else if (percentual < 75) {
+    progresso.style.backgroundColor = '#ff9800';
+  } else {
+    progresso.style.backgroundColor = '#4caf50';
+  }
 }
+
+
+
 
 function addTarefa() {
   //Pegar o valor digitado no input
@@ -44,19 +62,19 @@ function addTarefa() {
         main.innerHTML += novoItem;
 
         input.value = "";
-        input.focus();
+      
         atualizarContagem();
   }
-
 }
 
 function deletar(id){
   var tarefa = document.getElementById(id);
+
   if (tarefa.classList.contains('clicado')) {
     concluidas--;
   }
-
   tarefa.remove();
+
   atualizarContagem();
 }
 
@@ -66,6 +84,7 @@ function marcarTarefa(id) {
 
   if (!isConcluido) {
     item.classList.add('clicado'); 
+    //verifica se o elemento(tarefa) possui a classe CSS chamada clicado
     var icone = document.getElementById('icone_' + id);
     icone.classList.remove('fa-circle');
     icone.classList.add('fa-circle-check');
@@ -78,11 +97,8 @@ function marcarTarefa(id) {
     icone.classList.add('fa-circle');
     concluidas--; 
   }
-
-
   atualizarContagem();
 }
-
 
 function ediTarefa(id) {
   const item = document.getElementById(id); // Encontra o elemento da tarefa pelo ID
@@ -113,7 +129,7 @@ function dianoite() {
   }
 }
 
-[openModalButton, closeModalButton, fade].forEach((el) => {
+[closeModalButton, fade].forEach((el) => {
     el.addEventListener("click", () => toggleModal())
 });
 
